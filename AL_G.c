@@ -1,30 +1,27 @@
 #include <stdio.h>
+	  
+void reacomodo(int a[3]){
 
-void reacomodo(int a[9])
-{
-	int min=0,ban=0;
+	int minimo=0,tem=0;
 	
-	ban=a[0];
 
-	for(int i=0;i<9;i++)
-	{
-	  if(ban<a[i])
-	  {
-
-	  }
-	  else
-	  {
-		ban=a[i];
-	  }
+	for(int i=0;i<3;i++){
+		minimo = i;
+		for (int j = i + 1; j < 3; j++) {
+            	if (a[j] < a[minimo]) {
+                	minimo = j;
+            		}
+        	}
+		tem = a[i];
+		a[i] = a[minimo];
+		a[minimo] = tem;
 	}
-	min=ban;
-
-	printf("minimo = %d",min);
 }
+
 
 int main()
 {
-	int matriz[3][3],vec[9],n=0,h=0,h2=1;
+	int matriz[3][3]={0},vec[3],n=0,h=0,h2=1;
 	
 	printf("Matriz de 3x3\n");
 	
@@ -32,10 +29,20 @@ int main()
 	{
 		for(int j=0;j<3;j++)
 		{ 
+			if(i==j){
+				break;
+			}
 			printf("Ingresa un numero: ");
 			scanf("%d",&n);
+			if(matriz[i][j]!=0)
+			{	
+			}
+			else
+			{
 			matriz[i][j]=n;
-			
+			matriz[j][i]=n;
+			}
+
 			while(h2>h)
 			{
 				vec[h]=n;
@@ -62,15 +69,26 @@ int main()
 	
 	printf("---------\n");
 
-	for(int i=0;i<9;i++)
+	for(int i=0;i<3;i++)
 	{
 		printf("%d ",vec[i]);
 	}
 	printf("\n");
 	
 	printf("---------\n");
-
+	
 	reacomodo(vec);
+
+
+	for(int i=0;i<3;i++)
+	{
+		printf("%d ",vec[i]);
+	}
+	printf("\n");
+	
+	printf("---------\n");	
+
+
 }
 
 
