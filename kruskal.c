@@ -129,6 +129,7 @@ int main() //inicio de main
 				}else{
 					printf("--El valor ingresado es menor a 1--\n");
 				}
+				i--;
 				
 			}
 		}
@@ -160,7 +161,7 @@ int main() //inicio de main
 
 		printf("Vec.Cos = ");
 
-		for(int i=0;i<h;i++){
+		for(int i=0;i<h-1;i++){
 			printf("[%d] ",vector[i]);
 		}
 		printf("\n");
